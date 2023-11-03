@@ -154,6 +154,38 @@ const getTopProducts = asyncHandler(async (req, res) => {
   res.json(products);
 });
 
+// @desc    Fetch products by category
+// @route   GET /api/products/category/:category
+// @access  Public
+const getProductsByCategory = asyncHandler(async (req, res) => {
+  const pageSize = process.env.PAGINATION_LIMIT;
+  const page = Number(req.query.pageNumber) || 1;
+  const category = req.params.category;
+
+  const keyword = req.query.keyword
+    ? {
+        name: {
+          $regex: req.query.keyword,
+          $options: "i",
+        },
+      }
+    : {};
+
+  const count = await Product.countDocuments({
+    ...keyword,
+    category: category, // Filter by category
+  });
+
+  const products = await Product.find({
+    ...keyword,
+    category: category, // Filter by category
+  })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
+});
+
 export {
   getProducts,
   getProductById,
@@ -162,4 +194,5 @@ export {
   deleteProduct,
   createProductReview,
   getTopProducts,
+  getProductsByCategory,
 };
