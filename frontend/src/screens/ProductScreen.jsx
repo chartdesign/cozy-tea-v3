@@ -55,9 +55,12 @@ const ProductScreen = () => {
 
   return (
     <>
-      <Link className='flex items-center text-cozy-purple my-3' to='/'>
-        <FaArrowLeft className='mr-2' /> Go Back
-      </Link>
+      <div className='flex justify-start ml-4'>
+        <Link className=' items-center text-cozy-purple my-3' to='/'>
+          <FaArrowLeft className='mr-2' /> Go Back
+        </Link>
+      </div>
+
       {isLoading ? (
         <Loader />
       ) : error ? (
@@ -68,29 +71,35 @@ const ProductScreen = () => {
         <>
           <Meta title={product.name} description={product.description} />
           <div className='flex flex-wrap md:flex-nowrap'>
-            <div className='md:w-1/2'>
+            <div className='md:w-1/2 m-auto '>
               <img
                 src={product.image}
                 alt={product.name}
-                className='max-w-[200px] max-h-[200px] object-cover'
+                className='w-full max-h-[200px] object-cover m-auto ml-4 md:w-3/4'
               />
             </div>
             <div className='md:w-1/4 p-3'>
               <ul className='list-none p-0'>
                 <li className='mb-2'>
-                  <h3 className='text-lg font-bold'>{product.name}</h3>
+                  <h3 className='text-lg text-cozy-purple font-semibold'>
+                    {product.name}
+                  </h3>
                 </li>
-                <li className='mb-2'>
+                <li className='mb-2 text-sm'>
                   <Rating
                     value={product.rating}
                     text={`${product.numReviews} reviews`}
                   />
                 </li>
                 <li className='mb-2'>Price: ${product.price}</li>
-                <li className='mb-2'>Description: {product.description}</li>
+                <li className='mb-2 text-sm font-light'>
+                  Description: {product.description}
+                </li>
               </ul>
             </div>
-            <div className='md:w-1/4 p-3'>
+
+            {/* add to cart div */}
+            <div className='md:w-1/4 p-3 m-auto'>
               <div className='border rounded p-3'>
                 <ul className='list-none p-0'>
                   <li className='mb-2 flex justify-between'>
@@ -137,9 +146,11 @@ const ProductScreen = () => {
               </div>
             </div>
           </div>
+
+          {/* Reviews */}
           <div className='review mt-6'>
-            <div className='md:w-1/2'>
-              <h2 className='text-2xl mb-4'>Reviews</h2>
+            <div className='md:w-1/2 m-4'>
+              <h2 className='text-xl mb-4  font-light'>Reviews</h2>
               {product.reviews.length === 0 && <Message>No Reviews</Message>}
               <ul className='list-none p-0'>
                 {product.reviews.map((review) => (
@@ -152,8 +163,10 @@ const ProductScreen = () => {
                     <p>{review.comment}</p>
                   </li>
                 ))}
-                <li className='mt-4'>
-                  <h2 className='text-xl mb-4'>Write a Customer Review</h2>
+                <li className=''>
+                  <h2 className='text-lg mb-4 font-light'>
+                    Write a Customer Review
+                  </h2>
                   {loadingProductReview && <Loader />}
                   {userInfo ? (
                     <form onSubmit={submitHandler}>
@@ -203,17 +216,14 @@ const ProductScreen = () => {
                     </form>
                   ) : (
                     <Message>
-                      Please{" "}
-                      <Link className='text-cozy-purple' to='/login'>
-                        sign in
-                      </Link>{" "}
-                      to write a review
+                      <Link to='/login'>Please Sign in to Write a review</Link>
                     </Message>
                   )}
                 </li>
               </ul>
             </div>
           </div>
+          {/* end reviews */}
         </>
       )}
     </>

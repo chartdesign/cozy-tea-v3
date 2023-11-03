@@ -115,7 +115,7 @@ const PlaceOrderScreen = () => {
             <button
               onClick={placeOrderHandler}
               disabled={cart.cartItems.length === 0}
-              className='w-full bg-blue-500 text-white p-2 rounded mt-4'
+              className='w-full bg-cozy-purple text-white p-2 rounded mt-4'
             >
               Place Order
             </button>

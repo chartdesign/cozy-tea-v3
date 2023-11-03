@@ -42,17 +42,18 @@ const PaymentScreen = () => {
               value='PayPal'
               checked={paymentMethod === "PayPal"}
               onChange={(e) => setPaymentMethod(e.target.value)}
-              className='form-radio h-4 w-4 text-blue-600'
+              className='form-radio h-4 w-4 text-cozy-purple'
             />
-            <label htmlFor='PayPal' className='ml-2 flex items-center'>
+            <label htmlFor='PayPal' className='ml-2 flex items-center text-sm'>
+              Paypal
               <FaRegCreditCard className='mr-1' />
-              PayPal or Credit Card
+              <span className='text-xs'>or Credit Card</span>
             </label>
           </div>
         </div>
         <button
           type='submit'
-          className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+          className='bg-cozy-purple hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
         >
           Continue
         </button>

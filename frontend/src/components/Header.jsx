@@ -51,10 +51,14 @@ const Header = () => {
   return (
     <header className='bg-white text-black py-3'>
       <div className='container mx-auto flex justify-between items-center'>
-        <div className=' text-xl font-bold w-1/4'>
+        <div className=' text-xl font-bold w-1/2 flex items-center ml-2'>
           <Link to='/'>
-            <span className='text-cozy-purple'>Cozy Tea Shop</span>
+            <div>
+              <img src='/logo.png' alt='tea cup' className='max-w-[40px]' />
+            </div>
           </Link>
+
+          <p className='text-cozy-purple font-normal ml-2'>Cozy Tea Shop</p>
         </div>
 
         {/* Hamburger Menu Icon (visible on small screens) */}
@@ -70,6 +74,7 @@ const Header = () => {
             ) : (
               <AiOutlineUser className='mr-4' size={20} />
             )}
+
             {/* user toggle menu */}
             {isUserOpen && (
               <div className='absolute z-10 translate-y-16  bg-slate-400 rounded-xl'>
@@ -86,14 +91,60 @@ const Header = () => {
                 </button>
               </div>
             )}
+            <Link to='/cart'>
+              <AiOutlineShoppingCart className='mr-4' size={20} />{" "}
+            </Link>
 
-            <AiOutlineShoppingCart className='mr-4' size={20} />
             <GiHamburgerMenu
               className='text-bg-gray-700 text-3xl cursor-pointer mr-2'
               onClick={toggleMobileMenu}
             />
           </div>
         </div>
+
+        {/* Mobile Navigation Menu (hidden on larger screens) */}
+        {isMobileMenuOpen && (
+          <div className='lg:hidden absolute inset-0 bg-zinc-50 z-50'>
+            <div className='lg:hidden grid justify-items-end mt-4 mr-4'>
+              <div>
+                <AiOutlineCloseCircle
+                  className='text-bg-gray-700 text-3xl cursor-pointer '
+                  onClick={toggleMobileMenu}
+                />
+              </div>
+            </div>
+            <div className='flex flex-col items-center  h-full space-y-4 mt-8'>
+              <Link
+                to='/'
+                className='text-bg-gray-700 text-xl hover:text-gray-400 mt-4'
+                onClick={toggleMobileMenu}
+              >
+                Shop
+              </Link>
+              <Link
+                to='/cart'
+                className='text-bg-gray-700 text-xl hover:text-gray-400 mt-4'
+                onClick={toggleMobileMenu}
+              >
+                Cart
+              </Link>
+              <Link
+                to='/login'
+                className='text-bg-gray-700 text-xl hover:text-gray-400 mt-4'
+                onClick={toggleMobileMenu}
+              >
+                Account
+              </Link>
+              <div className='flex items-center space-x-4 '>
+                <input
+                  type='text'
+                  placeholder='Search...'
+                  className='bg-gray-700 text-bg-gray-700 px-3 py-1 '
+                />
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Desktop Navigation Links (hidden on small screens) */}
         <div className='hidden lg:flex items-center'>

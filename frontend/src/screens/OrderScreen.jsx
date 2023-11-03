@@ -117,7 +117,10 @@ const OrderScreen = () => {
             </p>
             <p>
               <strong>Email: </strong>{" "}
-              <a href={`mailto:${order.user.email}`} className='text-blue-500'>
+              <a
+                href={`mailto:${order.user.email}`}
+                className='text-cozy-purple'
+              >
                 {order.user.email}
               </a>
             </p>
@@ -177,7 +180,7 @@ const OrderScreen = () => {
                     <div className='w-5/12 ml-4'>
                       <Link
                         to={`/product/${item.product}`}
-                        className='text-blue-500'
+                        className='text-cozy-purple'
                       >
                         {item.name}
                       </Link>

@@ -32,12 +32,12 @@ const Message = ({ variant, children }) => {
 
   return (
     <div
-      className={`p-4 rounded ${backgroundColor} text-white flex items-center`}
+      className={`p-4 rounded ${backgroundColor} text-white text-center flex items-center font-thin`}
     >
       {icon}
       {children}
       <button
-        className='ml-auto focus:outline-none'
+        className='focus:outline-none'
         onClick={() => {
           /* Close button action */
         }}

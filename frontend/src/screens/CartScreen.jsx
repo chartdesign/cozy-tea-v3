@@ -29,7 +29,7 @@ const CartScreen = () => {
         {cartItems.length === 0 ? (
           <div>
             Your cart is empty{" "}
-            <Link to='/' className='text-blue-500'>
+            <Link to='/' className='text-cozy-purple'>
               Go Back
             </Link>
           </div>
@@ -38,11 +38,18 @@ const CartScreen = () => {
             {cartItems.map((item) => (
               <li key={item._id} className='border-b pb-4 mb-4'>
                 <div className='flex'>
-                  <div className='w-1/6'>
-                    <img src={item.image} alt={item.name} className='rounded' />
+                  <div className='w-1/6 '>
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className='rounded max-h-[100px]'
+                    />
                   </div>
                   <div className='w-1/4 ml-4'>
-                    <Link to={`/product/${item._id}`} className='text-blue-500'>
+                    <Link
+                      to={`/product/${item._id}`}
+                      className='text-cozy-purple'
+                    >
                       {item.name}
                     </Link>
                   </div>
@@ -65,7 +72,7 @@ const CartScreen = () => {
                   <div className='w-1/6 ml-4'>
                     <button
                       type='button'
-                      className='text-red-500'
+                      className='text-cozy-purple'
                       onClick={() => removeFromCartHandler(item._id)}
                     >
                       <FaTrash />
@@ -93,7 +100,7 @@ const CartScreen = () => {
             <li>
               <button
                 type='button'
-                className={`w-full py-2 bg-blue-500 text-white rounded ${
+                className={`w-full py-2 bg-cozy-purple text-white rounded ${
                   cartItems.length === 0 ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={cartItems.length === 0}
