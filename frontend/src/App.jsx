@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 import { logout } from "./slices/authSlice";
 
 import { ToastContainer } from "react-toastify";
@@ -28,11 +28,11 @@ const App = () => {
       <ToastContainer />
       <Header />
       <main className='py-3'>
-        <div className='container'>
+        <div className=''>
           <Outlet />
         </div>
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 };

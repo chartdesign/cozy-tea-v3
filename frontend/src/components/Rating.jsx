@@ -2,7 +2,7 @@ import { FaStar, FaStarHalfAlt, FaRegStar } from "react-icons/fa";
 
 const Rating = ({ value, text, color }) => {
   return (
-    <div className='flex items-center'>
+    <section className='flex items-center'>
       <span>
         {value >= 1 ? (
           <FaStar />
@@ -49,7 +49,7 @@ const Rating = ({ value, text, color }) => {
         )}
       </span>
       <span className='ml-2'>{text && text}</span>
-    </div>
+    </section>
   );
 };
 

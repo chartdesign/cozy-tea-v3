@@ -6,7 +6,10 @@ import Loader from "../components/Loader";
 import Message from "../components/Message";
 import Paginate from "../components/Paginate";
 import ProductCarousel from "../components/ProductCarousel";
+import Hero from "../components/Hero";
 import Meta from "../components/Meta";
+import Categories from "../components/Categories";
+import Benefits from "../components/Benefits";
 
 const HomeScreen = () => {
   const { pageNumber, keyword } = useParams();
@@ -20,13 +23,12 @@ const HomeScreen = () => {
     <>
       {!keyword ? (
         <>
-          <ProductCarousel />
-          Im The Carousel
+          <Hero />
         </>
       ) : (
         <Link
           to='/'
-          className='inline-block mb-4 px-4 py-2 text-white bg-gray-500 hover:bg-gray-400'
+          className='inline-block mb-4 px-4 py-2 text-white bg-cozy-purple hover:bg-gray-400 ml-4 rounded-lg'
         >
           Go Back
         </Link>
@@ -40,17 +42,23 @@ const HomeScreen = () => {
       ) : (
         <>
           <Meta />
-          <h1 className='text-2xl font-bold mb-4'>Latest Products</h1>
-          <div className='flex flex-wrap -mx-4'>
-            {data.products.map((product) => (
-              <div
-                key={product._id}
-                className='w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 px-4 mb-4'
-              >
-                <Product product={product} />
+          <Benefits />
+          <Categories />
+          <div className='bg-gradient-to-t from-cozy-light-tan to-white mt-4 p-4'>
+            <div className='max-w-[1080px] m-auto'>
+              <h1 className='text-xl font-bold mb-4 text-cozy-purple'>
+                Your Tea Collection
+              </h1>
+              <div className='grid grid-cols-2 md:grid-cols-4'>
+                {data.products.map((product) => (
+                  <div key={product._id} className=''>
+                    <Product product={product} />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
+
           <Paginate
             pages={data.pages}
             page={data.page}

@@ -35,7 +35,7 @@ const LoginScreen = () => {
 
   return (
     <div className='max-w-md mx-auto p-4'>
-      <h1 className='text-2xl font-bold mb-5'>Sign In</h1>
+      <h1 className='text-2xl font-bold mb-5 text-cozy-purple'>Sign In</h1>
       <form onSubmit={submitHandler}>
         <div className='mb-4'>
           <label
@@ -72,7 +72,7 @@ const LoginScreen = () => {
         <button
           type='submit'
           disabled={isLoading}
-          className='w-full p-2 mt-3 bg-blue-500 text-white rounded-md hover:bg-blue-600'
+          className='w-full p-2 mt-3 bg-cozy-purple text-white rounded-md hover:bg-blue-600'
         >
           Sign In
         </button>
@@ -82,7 +82,7 @@ const LoginScreen = () => {
 
       <div className='py-3'>
         <span>New Customer? </span>
-        <Link to='/register' className='text-blue-500 hover:underline'>
+        <Link to='/register' className='text-cozy-purple hover:underline'>
           Register
         </Link>
       </div>

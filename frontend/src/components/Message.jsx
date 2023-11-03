@@ -26,7 +26,7 @@ const Message = ({ variant, children }) => {
     case "info":
     default:
       icon = <FiInfo className='mr-2' />;
-      backgroundColor = "bg-blue-500";
+      backgroundColor = "bg-cozy-purple";
       break;
   }
 

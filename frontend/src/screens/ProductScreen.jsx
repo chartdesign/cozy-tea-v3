@@ -55,7 +55,7 @@ const ProductScreen = () => {
 
   return (
     <>
-      <Link className='flex items-center text-blue-500 my-3' to='/'>
+      <Link className='flex items-center text-cozy-purple my-3' to='/'>
         <FaArrowLeft className='mr-2' /> Go Back
       </Link>
       {isLoading ? (
@@ -72,7 +72,7 @@ const ProductScreen = () => {
               <img
                 src={product.image}
                 alt={product.name}
-                className='w-full h-auto'
+                className='max-w-[200px] max-h-[200px] object-cover'
               />
             </div>
             <div className='md:w-1/4 p-3'>
@@ -124,7 +124,7 @@ const ProductScreen = () => {
                       className={`btn ${
                         product.countInStock === 0
                           ? "bg-gray-500"
-                          : "bg-blue-500"
+                          : "bg-cozy-purple"
                       } w-full text-white`}
                       type='button'
                       disabled={product.countInStock === 0}
@@ -194,7 +194,7 @@ const ProductScreen = () => {
                         ></textarea>
                       </div>
                       <button
-                        className='bg-blue-500 text-white py-2 px-4 rounded'
+                        className='bg-cozy-purple text-white py-2 px-4 rounded'
                         disabled={loadingProductReview}
                         type='submit'
                       >
@@ -204,7 +204,7 @@ const ProductScreen = () => {
                   ) : (
                     <Message>
                       Please{" "}
-                      <Link className='text-blue-500' to='/login'>
+                      <Link className='text-cozy-purple' to='/login'>
                         sign in
                       </Link>{" "}
                       to write a review

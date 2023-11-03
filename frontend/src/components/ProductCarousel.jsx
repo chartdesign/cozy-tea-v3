@@ -24,7 +24,6 @@ const ProductCarousel = () => {
     <Message variant='danger'>{error?.data?.message || error.error}</Message>
   ) : (
     <div className='relative bg-slate-400 mb-4 overflow-hidden h-[400px] max-w-lg'>
-      im in the carry
       {products.map((product, index) => (
         <div
           key={product._id}
@@ -39,7 +38,6 @@ const ProductCarousel = () => {
               className='w-full object-cover'
             />
             <div className='absolute bottom-0 text-white p-4 z-10'>
-              no im here
               <h2 className='text-center'>
                 {product.name} (${product.price})
               </h2>

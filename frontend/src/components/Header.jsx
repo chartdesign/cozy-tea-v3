@@ -49,12 +49,13 @@ const Header = () => {
   };
 
   return (
-    <header className='bg-black text-white py-3'>
+    <header className='bg-white text-black py-3'>
       <div className='container mx-auto flex justify-between items-center'>
-        <Link to='/' className='flex items-center'>
-          {/* <img src={logo} alt='ProShop' className='mr-2' /> */}
-          <span className='ml-2'>ProShop</span>
-        </Link>
+        <div className=' text-xl font-bold w-1/4'>
+          <Link to='/'>
+            <span className='text-cozy-purple'>Cozy Tea Shop</span>
+          </Link>
+        </div>
 
         {/* Hamburger Menu Icon (visible on small screens) */}
         <div className='lg:hidden'>
@@ -101,7 +102,7 @@ const Header = () => {
             <FaShoppingCart className='mr-2' />
             Cart
             {cartItems.length > 0 && (
-              <span className='bg-green-400 text-white rounded-full ml-2 px-2'>
+              <span className='bg-cozy-purple text-white rounded-full ml-2 px-2'>
                 {cartItems.reduce((a, c) => a + c.qty, 0)}
               </span>
             )}
@@ -114,7 +115,7 @@ const Header = () => {
                   <FaUser className='ml-2' />
                 </button>
 
-                <div className=' absolute hover:block top-full mt-2 bg-white text-black rounded shadow-lg'>
+                <div className=' absolute hover:block top-full mt-2 bg-white text-black rounded shadow-lg z-10'>
                   <Link to='/profile' className='block px-4 py-2'>
                     Profile
                   </Link>
@@ -128,9 +129,9 @@ const Header = () => {
               </div>
             </>
           ) : (
-            <Link to='/login' className='flex items-center ml-6'>
+            <Link to='/login' className='flex items-center ml-6 text-sm'>
               <FaUser className='mr-2' />
-              Sign In
+              Login
             </Link>
           )}
           {userInfo && userInfo.isAdmin && (

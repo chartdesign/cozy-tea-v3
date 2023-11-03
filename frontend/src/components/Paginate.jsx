@@ -5,7 +5,7 @@ import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 const Paginate = ({ pages, page, isAdmin = false, keyword = "" }) => {
   return (
     pages > 1 && (
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-center mt-4'>
         {/* Previous Page Icon */}
         {page > 1 && (
           <Link
@@ -33,7 +33,7 @@ const Paginate = ({ pages, page, isAdmin = false, keyword = "" }) => {
                 : `/admin/productlist/${x + 1}`
             }
             className={`px-3 py-2 border rounded-md mr-2 ${
-              x + 1 === page ? "bg-blue-500 text-white" : ""
+              x + 1 === page ? "bg-cozy-purple text-white" : ""
             }`}
           >
             {x + 1}
