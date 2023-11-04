@@ -1,5 +1,9 @@
 import { useParams } from "react-router-dom";
-import { useGetProductsQuery } from "../slices/productsApiSlice";
+import {
+  useGetProductsQuery,
+  useGetProductsByCatgQuery,
+} from "../slices/productsApiSlice";
+
 import { Link } from "react-router-dom";
 import Product from "../components/Product";
 import Loader from "../components/Loader";
@@ -12,10 +16,11 @@ import Categories from "../components/Categories";
 import Benefits from "../components/Benefits";
 
 const HomeScreen = () => {
-  const { pageNumber, keyword } = useParams();
+  const { pageNumber, keyword, category } = useParams();
 
   const { data, isLoading, error } = useGetProductsQuery({
     keyword,
+    category,
     pageNumber,
   });
 
@@ -63,6 +68,7 @@ const HomeScreen = () => {
             pages={data.pages}
             page={data.page}
             keyword={keyword ? keyword : ""}
+            category={category ? category : ""}
           />
         </>
       )}

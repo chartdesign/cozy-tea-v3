@@ -3,12 +3,12 @@ import React, { useState } from "react";
 
 const Categories = () => {
   const navigate = useNavigate();
-  const { keyword: urlKeyword } = useParams();
-  const [keyword, setKeyword] = useState(urlKeyword || "");
+  const { category: urlCategory } = useParams();
+  const [category, setCategory] = useState(urlCategory || "");
 
   const handleClick = (e) => {
     e.stopPropagation();
-    navigate("/category/Green Tea");
+    navigate(`/category/Green Tea`);
   };
 
   return (
@@ -17,14 +17,7 @@ const Categories = () => {
         <h1 className='text-cozy-purple text-lg mb-4 text-center'>
           Shop Our Teas
         </h1>
-        <div
-          onClick={() => {
-            setKeyword("Green Tea");
-            navigate("/category/Green Tea");
-          }}
-        >
-          Green Tea test
-        </div>
+
         <div className='grid grid-cols-2 md:grid-cols-4 '>
           <div className='flex flex-col items-center'>
             <Link to='/category/Green Tea'>

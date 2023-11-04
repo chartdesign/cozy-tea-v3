@@ -23,6 +23,7 @@ import store from "./store";
 import { Provider } from "react-redux";
 import { HelmetProvider } from "react-helmet-async";
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
+import TestScreen from "./screens/TestScreen.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,6 +35,10 @@ const router = createBrowserRouter(
       <Route path='/page/:pageNumber' element={<HomeScreen />} />
       <Route
         path='/search/:keyword/page/:pageNumber'
+        element={<HomeScreen />}
+      />
+      <Route
+        path='/category/:category/page/:pageNumber'
         element={<HomeScreen />}
       />
       <Route path='/product/:id' element={<ProductScreen />} />
