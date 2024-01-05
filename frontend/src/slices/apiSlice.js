@@ -18,6 +18,7 @@ async function baseQueryWithAuth(args, api, extra) {
   if (result.error && result.error.status === 401) {
     api.dispatch(logout());
   }
+
   return result;
 }
 
