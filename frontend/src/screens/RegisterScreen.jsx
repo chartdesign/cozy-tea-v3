@@ -124,11 +124,7 @@ const RegisterScreen = () => {
             Register
           </button>
 
-          {isLoading && (
-            <div className='mt-4'>
-              <Loader />
-            </div>
-          )}
+          {isLoading && <div className='mt-4'>Loading...</div>}
         </form>
 
         <div className='text-center'>
